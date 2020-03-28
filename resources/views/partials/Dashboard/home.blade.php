@@ -37,7 +37,7 @@
                          <td>{{$order->created_at->diffForHumans()}}</td>
  						<td><span class="status text-success">&bull;</span> {{$order->status}}</td>
  						<td>{{$order->total}}</td>
- 						<td><a href="{{route('order.show',$order->id)}}" class="view" title="View Details" data-toggle="tooltip"><i class="fa fa-arrow-right"></i></a></td>
+ 						<td><a href="{{route('order.show',$order->id)}}" class="view text-primary" title="View Details" data-toggle="tooltip"><i class="fa fa-arrow-right"></i></a></td>
                      </tr>
 @endforeach
 @else

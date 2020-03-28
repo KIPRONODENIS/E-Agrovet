@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use Cart;
+use App\Setting;
 class CartController extends Controller
 {
     /**
@@ -56,7 +57,7 @@ class CartController extends Controller
 
 
           $options = $request->except('_token', 'id', 'price', 'qty','update');
-    $shipping=50;
+    $shipping=Setting::find(1)->price;
           //add condition
           $itemCondition2 = new \Darryldecode\Cart\CartCondition(array(
     'name' => 'Shipping Fee',

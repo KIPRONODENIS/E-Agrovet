@@ -6,10 +6,10 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
-
+use Rinvex\Subscriptions\Traits\HasSubscriptions;
 class User extends Authenticatable
 {
-    use Notifiable,HasRoles;
+    use Notifiable,HasRoles,HasSubscriptions;
 
     /**
      * The attributes that are mass assignable.
@@ -39,7 +39,7 @@ class User extends Authenticatable
     ];
 
     public function services() {
-      return $this->hasMany(\App\Models\Service::class);
+      return $this->hasMany(\App\Service::class);
     }
 
 

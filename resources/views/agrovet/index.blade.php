@@ -6,9 +6,7 @@
 @endcomponent
 <div class="nav my-2  bg-green-200 w-full col-md-10 mx-auto">
   <ul class="nav nav-pills my-3 col-md-8 mx-auto">
-    	<li class="nav-item "><a href="{{route('agrovet.home')}}" class="nav-link  active">Home</a></li>
-    	<li class="nav-item"><a href="{{route('agrovet.products')}}" class="nav-link">  Products</a></li>
-    	<li class="nav-item"><a href="{{route('agrovet.profile')}}" class="nav-link">Profile</a></li>
+@include('partials.agrovetNav')
       @if(is_null(auth()->user()->agrovet))
       	<li class=" bg-white w-100 mt-5 p-3 text-md font-bold">Create Your Agrovet Now!!<a class="btn btn-success float-right"  data-toggle="modal" data-target="#myModal">Create An Agrovet</a></li>
    @else
@@ -110,7 +108,7 @@
 <th>Price</th>
 <th>Total</th>
 
-<th>Action</th>
+<th>OrderID</th>
 </tr>
 </thead>
 <tbody>
@@ -123,37 +121,12 @@
 <td>{{$today->user->name}}</td>
 
 <td>{{$today->created_at->diffForHumans()}}</td>
-<td>{{$today->status}}</td>
+<td>{{$today->order->status}}</td>
 
 <td>Kshs.{{$today->product->price}}</td>
 <td>Kshs. {{$today->product->price * $today->quantity }}</td>
 <td>
-  <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Update
-  </button>
-
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
+{{$today->order->id}}
 </td>
 </tr>
 
@@ -173,8 +146,12 @@
 <th>Product Name</th>
 <th>quantity</th>
 <th>Customer</th>
+
+<th>Date Placed</th>
+<th>Status</th>
 <th>Price</th>
 <th>Total</th>
+<th>OrderID</th>
 </tr>
 </thead>
 <tbody>
@@ -184,8 +161,13 @@
 <td>{{$order->product->name}}</td>
 <td>{{$order->quantity}}</td>
 <td>{{$order->user->name}}</td>
+<td>{{$order->created_at->diffForHumans()}}</td>
+<td>{{$order->order->status}}</td>
 <td>Kshs.{{$order->product->price}}</td>
 <td>Kshs. {{$order->product->price * $order->quantity }}</td>
+<td>
+{{$order->order->id}}
+</td>
 </tr>
 @endforeach
 

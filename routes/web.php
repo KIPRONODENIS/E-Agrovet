@@ -34,6 +34,7 @@ Route::put('service/{service}/update','VetController@update')->name('vet.service
 Route::get('service/{service}/remove','VetController@destroy')->name('vet.service.delete');
 Route::get('vet/service/create','VetController@create')->name('vet.service.create');
 Route::post('service/create','VetController@store')->name('vet.service.store');
+Route::get('orders/vet/','VetController@orders')->name('vet.orders');
 //Route to thankyou page
 Route::get('thankyou',function(){
     Cart::clear();
@@ -59,6 +60,7 @@ Route::get('/agrovet/home','AgrovetController@index')->name('agrovet.home');
 //Route
 Route::get('/agovet/products','AgrovetController@products')->name('agrovet.products');
 Route::get('/agovet/profile','AgrovetController@profile')->name('agrovet.profile');
+Route::get('/agovet/account','AgrovetController@account')->name('agrovet.account');
 Route::post('/agrovet','AgrovetController@create')->name('agrovet.create');
 Route::put('/agrovet/{agrovet}','AgrovetController@updateAgrovet')->name('agrovet.update');
 
@@ -84,3 +86,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::put('/profile/name/edit','ProfileController@name')->name('profile.update.name');
 
 Route::put('/profile/email/edit','ProfileController@email')->name('profile.email.update');
+
+
+//Routes to withdraw 
+Route::post('/withdraw','WithdrawController@withdraw')->name('account.withdraw');
+
+//Route to subscribe
+Route::post('/subscribe','UserController@subscribe')->name('user.subscribe');

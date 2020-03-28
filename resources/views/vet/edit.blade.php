@@ -6,11 +6,8 @@
 
 <div class="jumbotron h-screen">
   <div class="shadow w-3/4 mx-auto p-1">
-  <ul class="nav nav-pills my-3 col-md-8 mx-auto">
-    	<li class="nav-item "><a href="{{route('home')}}" class="nav-link ">Home</a></li>
-    	<li class="nav-item"><a href="{{route('vet.services')}}" class="nav-link  active">  Services</a></li>
-    	<li class="nav-item"><a href="#" class="nav-link">Profile</a></li>
-    </ul>
+ 
+@include('partials.vetNav')
   </div>
 
   <div class="shadow w-3/4 mx-auto p-1">

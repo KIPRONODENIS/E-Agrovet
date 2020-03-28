@@ -67,6 +67,11 @@
    @slot('id')
 {{$item->id}}
    @endslot
+
+@slot('user')
+{{$item->user->name}}
+@endslot
+
  @endcomponent
 @endforeach
 

@@ -9,7 +9,7 @@
 <div class="row h-screen">
 <div class="col-6 d-block pt-6">
   <div class=" shadow-sm p-3">
- <img class="img-thumbnail" src="{{asset('/images/'.$service->image)}}">
+ <img class="img-thumbnail" src="{{asset('/storage/'.$service->image)}}">
  <h1 class="h1 py-2">{{$service->name}}</h1>
  <p class="lead">{{$service->details}}</p>
 

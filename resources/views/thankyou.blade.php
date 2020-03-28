@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('body')
 <div class="bg-green-100 h-screen">
 @component('components.navbarComponent')
 
@@ -10,3 +11,4 @@
     <a href="{{route('products.index')}}" class="btn shadow bg-yellow-500 text-md my-2 p-2">Continue shopping</a>
 </div>
 </div>
+@endsection

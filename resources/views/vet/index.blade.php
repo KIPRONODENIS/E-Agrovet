@@ -5,13 +5,14 @@
 @endcomponent
 
 <div class="jumbotron h-screen">
-  <div class="shadow w-3/4 mx-auto p-1">
-  <ul class="nav nav-pills my-3 col-md-8 mx-auto">
 
-        <li class="nav-item "><a href="{{route('home')}}" class="nav-link  active">Home</a></li>
-        <li class="nav-item"><a href="{{route('vet.services')}}" class="nav-link ">  Services</a></li>
-    	<li class="nav-item"><a href="{{route('vet.profile')}}" class="nav-link">Profile</a></li>
-    </ul>
+  <div class="shadow w-3/4 mx-auto p-1">
+  
+@include('partials.subscribe')
+ 
+@include('partials.vetNav')
+
+   
   </div>
 
     <div class="shadow w-3/4 mx-auto p-1">

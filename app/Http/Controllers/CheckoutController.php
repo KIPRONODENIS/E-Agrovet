@@ -7,6 +7,8 @@ use Cart;
 use App\Order;
 use App\ProductDetail;
 use App\Product;
+use App\Revenue;
+use App\Setting;
 class CheckoutController extends Controller
 {
     /**
@@ -64,6 +66,15 @@ $product_details[]=ProductDetail::create([
 $stock=Product::find($item['id'])->stock;
 $updated=$stock-$item['quantity'];
 Product::find($item['id'])->update(['stock'=>$updated]);
+
+
+//deduct the deductions 
+
+     Revenue::create([
+     'user_id'=>\Auth::id(),
+     'amount'=>Setting::first()->price,
+     'description'=>'Shipping cost'
+        ]);
 
   return redirect()->route('thankyou')->with('success',"Successfully Placed the Order");
     }

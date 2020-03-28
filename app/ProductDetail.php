@@ -18,5 +18,9 @@ class ProductDetail extends Model
       return $this->belongsTo(\App\Agrovet::class);
     }
 
+    public function order() {
+      return $this->belongsTo(\App\Order::class);
+    }
+
 
 }

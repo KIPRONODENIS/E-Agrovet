@@ -9,7 +9,8 @@ class VetController extends Controller
 {
   public function index() {
     $orders=\Auth::user()->vetOrders;
-    return view('vet.index',compact('orders'));
+    $active='home';
+    return view('vet.index',compact('orders','active'));
   }
 
   //functio  to update statid
@@ -22,14 +23,26 @@ return redirect()->back();
 
     public function services() {
       $services=\Auth::user()->vetServices;
-      return view('vet.services',compact('services'));
+      $active='services';
+      return view('vet.services',compact('services','active'));
     }
 
     //function to create
 
     public function create() {
+    $active="services";
+      return view('vet.create',compact('active'));
+    }
 
-      return view('vet.create');
+    //return orders
+        public function orders() {
+$active='orders';
+$orders=auth()->user()->orders()->orderBy('created_at','desc')->get();
+
+//what about the service orders
+$service_orders=auth()->user()->serviceOrders;
+$active='orders';
+  return view('vet.orders',compact('orders','service_orders','active'));
     }
 
     public function store(Request $request) {
@@ -56,7 +69,8 @@ return redirect()->back();
     }
 
     public function edit(Service $service) {
-      return view('vet.edit',compact('service'));
+      $active='services';
+      return view('vet.edit',compact('service','active'));
     }
 
     public function update(Request $request,Service $service){
@@ -96,6 +110,7 @@ return redirect()->back();
 
 
 public function profile() {
-  return view('vet.profile');
+  $active="profile";
+  return view('vet.profile',compact('active'));
 }
 }

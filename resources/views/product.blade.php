@@ -22,6 +22,9 @@
     @slot('id')
      {{$product->id}}
     @endslot
+           @slot('stock')
+        {{$product->stock}}
+       @endslot
     @guest
    <button type="submit" class=" my-3 w-3/4 shadow-sm bg-yellow-500 p-2 m-auto text-center text-white rounded">Add to Cart</button>
     @else

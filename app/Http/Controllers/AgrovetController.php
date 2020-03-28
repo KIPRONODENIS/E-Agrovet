@@ -21,20 +21,29 @@ class AgrovetController extends Controller
 
   $orders=$agrovet->orders()->with('product','user')->get();
 }
-
-    return view('agrovet.index',compact('orders','todays'));
+ $active='home';
+    return view('agrovet.index',compact('orders','todays','active'));
 
   }
 
   public function products() {
    $products=\Auth::user()->products;
-    return view('agrovet.products',compact('products'));
+   $active='products';
+    return view('agrovet.products',compact('products','active'));
 
   }
 
   public function profile() {
+ $active='profile';
 
-    return view('agrovet.profile');
+    return view('agrovet.profile',compact('active'));
+
+  }
+
+
+  public function account() {
+    $active="account";
+    return view('agrovet.account',compact('active'));
 
   }
 
