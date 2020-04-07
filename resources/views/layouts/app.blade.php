@@ -18,9 +18,11 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <!-- Styles -->
+
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('font-awesome/css/font-awesome.css')}}">
+        @yield('assets')
 </head>
 <body>
     <div id="app"  >

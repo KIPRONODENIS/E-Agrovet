@@ -11,6 +11,9 @@ class Agrovet extends Model
   public function orders(){
     return $this->hasMany(\App\ProductDetail::class);
   }
+public function user() {
+  return $this->belongsTo(\App\User::class);
+}
 
   public function scopeTotal() {
 $this->total=0;

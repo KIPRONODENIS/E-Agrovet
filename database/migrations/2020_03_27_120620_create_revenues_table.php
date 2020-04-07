@@ -16,12 +16,17 @@ class CreateRevenuesTable extends Migration
         Schema::create('revenues', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('user_id');
-            $table->integer('amount');
+            $table->bigInteger('amount')->unsigned();
             $table->string('description');
+            $table->string('deleted_at')->nullable();
+        
+
             $table->timestamps();
+
+
         });
         Revenue::create([
-     'user_id'=>8,
+     'user_id'=>6,
      'amount'=>150,
      'description'=>'Shipping cost'
         ]);

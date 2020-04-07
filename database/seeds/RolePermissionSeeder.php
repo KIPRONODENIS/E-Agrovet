@@ -35,9 +35,9 @@ $role->givePermissionTo(['add Agrovet','delete Agrovet','update Agrovet']);
 $role1->givePermissionTo(['add Vet service','delete vet service','update vet service']);
 
 //ASSIGN SOME USERS RoleS
-User::find(2)->assignRole('vet');
-User::find(1)->assignRole('agrovet');
-User::find(3)->assignRole('admin');
+User::find(3)->assignRole('vet');
+User::find(2)->assignRole('agrovet');
+User::find(1)->assignRole('admin');
 
     }
 }

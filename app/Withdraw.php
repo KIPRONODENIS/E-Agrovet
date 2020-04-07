@@ -8,5 +8,7 @@ class Withdraw extends Model
 {
    protected $guarded=[];
 
-   
+   public function agrovet(){
+     return  	$this->belongsTo(\App\Agrovet::class);
+   }
 }

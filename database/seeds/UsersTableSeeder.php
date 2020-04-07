@@ -21,11 +21,11 @@ class UsersTableSeeder extends Seeder
 
             User::create([
                 'name'           => 'Admin',
-                'email'          => 'agrovet@agrovet.com',
+                'email'          => 'admin@admin.com',
                 'password'       => bcrypt('12345678'),
                 'remember_token' => Str::random(60),
                 //'role_id'        => 1,
-                'user_type'=>'Farmer'
+                'user_type'=>'admin'
             ]);
 
 

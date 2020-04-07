@@ -22,13 +22,13 @@ class CreateWithdrawsTable extends Migration
         });
 
   Withdraw::create([
-'agrovet_id'=>2,
+'agrovet_id'=>1,
 'amount'=>200,
 'phone'=>'0799012907'
   ]);
 
   Withdraw::create([
-'agrovet_id'=>2,
+'agrovet_id'=>1,
 'amount'=>200,
 'phone'=>'0799012907'
   ]);

@@ -49,7 +49,7 @@ Route::get('register',function(){
   return view('auth.register');
 })->name('register');
 //Route to admin home
-Route::get('/admin','AdminController@index')->name('admin.home');
+
 //Route to vet home
 Route::get('/vet/home','VetController@index')->name('vet.home');
 Route::get('/vet/services','VetController@services')->name('vet.services');
@@ -93,3 +93,41 @@ Route::post('/withdraw','WithdrawController@withdraw')->name('account.withdraw')
 
 //Route to subscribe
 Route::post('/subscribe','UserController@subscribe')->name('user.subscribe');
+
+//admin routes 
+
+Route::prefix('admin')->group(function(){
+Route::get('/','AdminController@index')->name('admin.home')->middleware('auth');
+Route::get('/agrovets','AdminController@agrovets')->name('admin.agrovets');
+Route::get('/customers','AdminController@customers')->name('admin.customers');
+Route::get('/orders','AdminController@orders')->name('admin.orders');
+Route::get('/payments','AdminController@payments')->name('admin.payments');
+Route::get('/providers','AdminController@providers')->name('admin.providers');
+Route::get('/revenue','AdminController@revenue')->name('admin.revenue');
+Route::get('/services','AdminController@services')->name('admin.services');
+Route::get('/withdrawals','AdminController@withdrawals')->name('admin.withdrawals');
+Route::get('/report','AdminController@report')->name('admin.report');
+Route::get('/user/{user}/show','AdminController@show')->name('admin.user.show');
+Route::put('/user/{user}/update','AdminController@update')->name('admin.user.update');
+Route::get('/user/{user}/remove','AdminController@destroy')->name('admin.users.destroy');
+
+Route::get('/revenue/{revenue}/destroy','AdminController@destroyRevenue')->name('revenue.destroy');
+Route::get('/agrovet/{agrovet}/view','AdminController@agrovetView')->name('admin.agrovet.view');
+Route::put('/agrovet/{agrovet}/edit','AdminController@agrovetEdit')->name('admin.agrovet.edit');
+
+Route::get('/agrovet/{agrovet}/remove','AdminController@agrovetDelete')->name('admin.agrovet.destroy');
+
+Route::get('/provider/{provider}/view','AdminController@ProviderView')->name('admin.provider.view');
+
+
+Route::get('/provider/{provider}/remove','AdminController@ProviderDestroy')->name('admin.provider.delete');
+
+
+Route::get('/service/{service}/edit','AdminController@ServiceEdit')->name('admin.service.edit');
+Route::get('/service/{service}/remove','ServiceController@destroy')->name('admin.service.destroy');
+
+Route::get('/withdraw/{withdraw}/remove','AdminController@destroyWithdraw')->name('withdraw.destroy');
+
+Route::put('/order/{order}/update','AdminController@updateOrder')->name('order.update.status');
+
+});

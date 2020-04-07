@@ -114,6 +114,7 @@ return redirect()->back();
      */
     public function destroy(Service $service)
     {
-        //
+        $service->delete();
+        return redirect()->back()->with('success',"Deleted {$service->name}");
     }
 }
